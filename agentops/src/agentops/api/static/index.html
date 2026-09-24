@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgentOps | Production Remediation</title>
+    <meta name="description" content="AI Agent Platform for secure production incident remediation.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/index.css">
+</head>
+<body>
+    <div class="container">
+        
+        <!-- Left Panel: Incident Intake -->
+        <aside class="panel glass">
+            <div>
+                <h1>AgentOps</h1>
+                <p class="subtitle">Deterministic Orchestration Platform</p>
+            </div>
+
+            <form id="incidentForm" class="form-group">
+                
+                <div class="form-group">
+                    <label for="service">Target Service</label>
+                    <select id="service" required>
+                        <option value="checkout-api">checkout-api</option>
+                        <option value="payment-gateway">payment-gateway</option>
+                        <option value="inventory-db">inventory-db</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="tier">Autonomy Tier</label>
+                    <select id="tier" required>
+                        <option value="3">Tier 3 (Fully Autonomous Simulation)</option>
+                        <option value="2">Tier 2 (Requires Approval)</option>
+                        <option value="1">Tier 1 (Recommend Only)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="description">Incident Description</label>
+                    <textarea id="description" placeholder="Describe the incident, e.g., 'High latency and 5xx errors...'" required>High latency and 5xx errors reported on the checkout API. Customers unable to purchase.</textarea>
+                </div>
+
+                <button type="submit" id="submitBtn">
+                    <div class="spinner" id="btnSpinner"></div>
+                    <span id="btnText">Trigger Investigation</span>
+                </button>
+            </form>
+        </aside>
+
+        <!-- Right Panel: Trace Visualization -->
+        <main class="panel glass viz-panel">
+            <header class="viz-header">
+                <h2>Workflow Trace</h2>
+                <div class="status-badge" id="workflowStatus">IDLE</div>
+            </header>
+
+            <div class="timeline" id="timeline">
+                <div class="timeline-item" style="opacity: 0.5; animation: none;">
+                    <div class="item-header">
+                        <span class="node-name">System Ready</span>
+                    </div>
+                    <div class="item-content">Waiting for incident intake.</div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="/static/app.js"></script>
+</body>
+</html>

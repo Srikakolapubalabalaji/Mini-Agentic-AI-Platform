@@ -1,0 +1,8 @@
+{
+    "incident_id": "INC-20260923-001",
+    "tenant_id": "t-acme-corp",
+    "environment": "production",
+    "service": "checkout-api",
+    "description": "High latency and 5xx errors reported on the checkout API. Some customers are unable to complete their purchases.",
+    "requested_autonomy_tier": 2
+}

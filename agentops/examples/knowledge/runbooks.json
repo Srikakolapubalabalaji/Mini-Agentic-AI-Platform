@@ -1,0 +1,14 @@
+[
+    {
+        "id": "rb-checkout-5xx",
+        "service": "checkout-api",
+        "title": "Handling High 5xx Rates on Checkout",
+        "content": "When checkout-api experiences >5% 5xx errors, check the payment-gateway dependency. If payment-gateway is healthy, the issue is likely checkout-api capacity. Recommended action: scale checkout-api replicas by 50%, up to a maximum of 50."
+    },
+    {
+        "id": "rb-payment-latency",
+        "service": "payment-gateway",
+        "title": "Payment Gateway Latency Mitigation",
+        "content": "If payment-gateway latency exceeds 2000ms, restart the pods. Scale up is not effective for this specific service."
+    }
+]

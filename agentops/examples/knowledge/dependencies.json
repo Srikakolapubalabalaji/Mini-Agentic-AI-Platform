@@ -1,0 +1,28 @@
+{
+    "services": [
+        {
+            "id": "checkout-api",
+            "owner": "team-checkout",
+            "repository": "github.com/acme/checkout-api",
+            "max_replicas": 50,
+            "min_replicas": 3
+        },
+        {
+            "id": "payment-gateway",
+            "owner": "team-payments",
+            "repository": "github.com/acme/payment-gateway",
+            "max_replicas": 20,
+            "min_replicas": 2
+        },
+        {
+            "id": "inventory-db",
+            "owner": "team-data",
+            "repository": "github.com/acme/inventory-db",
+            "type": "database"
+        }
+    ],
+    "dependencies": [
+        {"source": "checkout-api", "target": "payment-gateway"},
+        {"source": "checkout-api", "target": "inventory-db"}
+    ]
+}
